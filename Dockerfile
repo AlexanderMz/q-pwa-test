@@ -7,7 +7,7 @@ COPY . .
 # build stage
 FROM develop-stage as build-stage
 RUN yarn
-RUN quasar build-pwa
+RUN quasar build -m pwa
 # production stage
 FROM nginx:1.17.5-alpine as production-stage
 COPY --from=build-stage /app/dist/pwa /usr/share/nginx/html
