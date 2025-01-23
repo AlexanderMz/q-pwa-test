@@ -37,7 +37,7 @@ export default defineConfig((/* ctx */) => {
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#build
     build: {
       env: {
-        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY
+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY || 'AIzaSyC4d3pkEslVbx3xLc1037FdfgoYPW6b-yI'
       },
       target: {
         browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],
