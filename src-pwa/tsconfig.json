@@ -3,5 +3,5 @@
   "compilerOptions": {
     "lib": ["WebWorker", "ESNext"]
   },
-  "include": ["*.ts", "*.d.ts", "../public/firebase-messaging-sw.js"]
+  "include": ["*.ts", "*.d.ts", "../src/firebase-messaging-sw.js"]
 }
