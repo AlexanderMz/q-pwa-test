@@ -84,7 +84,7 @@ export default [
   },
 
   {
-    files: ['src-pwa/custom-service-worker.ts', 'src-pwa/firebase-messaging.sw.ts'],
+    files: ['src-pwa/custom-service-worker.ts'],
     languageOptions: {
       globals: {
         ...globals.serviceworker,

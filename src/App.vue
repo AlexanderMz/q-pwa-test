@@ -15,7 +15,9 @@ import { firebaseConfig, vapidKey } from './config';
 // Initialize Firebase
 initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
-
+const strUrl: string = window.location.origin + window.location.pathname + 'src-pwa/firebase-messaging-sw.js';
+console.log(strUrl)
+new SharedWorker(new URL(strUrl));
 // Get registration token. Initially this makes a network call, once retrieved
 // subsequent calls to getToken will return from cache.
 const messaging = getMessaging();
@@ -46,5 +48,29 @@ getToken(messaging, { vapidKey  }).then((currentToken) => {
 //       console.log("Service worker registration failed, error:", err);
 //     });
 // }
+
+// const registerServiceWorker = async () => {
+//   if ('serviceWorker' in navigator) {
+//     try {
+//       const registration = await navigator.serviceWorker.register(
+//         '/src/firebase-messaging-sw.js',
+//         {
+//           scope: '/src/',
+//         }
+//       );
+//       if (registration.installing) {
+//         console.log('Service worker installing');
+//       } else if (registration.waiting) {
+//         console.log('Service worker installed');
+//       } else if (registration.active) {
+//         console.log('Service worker active');
+//       }
+//     } catch (error) {
+//       console.error(`Registration failed with ${error}`);
+//     }
+//   }
+// };
+
+// registerServiceWorker().then()
 
 </script>

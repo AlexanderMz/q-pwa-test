@@ -1,6 +1,3 @@
-declare const self: ServiceWorkerGlobalScope &
-  typeof globalThis & { skipWaiting: () => void };
-
 // Give the service worker access to Firebase Messaging.
 // Note that you can only use Firebase Messaging here. Other Firebase libraries
 // are not available in the service worker.
@@ -13,19 +10,19 @@ importScripts('https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-com
 // https://firebase.google.com/docs/web/setup#config-object
 firebase.initializeApp({
   apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: 'push-notification-cb084.firebaseapp.com',
-  projectId: 'push-notification-cb084',
-  storageBucket: 'push-notification-cb084.firebasestorage.app',
-  messagingSenderId: '811825584003',
-  appId: '1:811825584003:web:973e20241669cb57d808b6',
-  measurementId: 'G-J50FCL38Y8',
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APPID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 })
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
 // messages.
 const messaging = firebase.messaging()
 
-messaging.onBackgroundMessage((payload) => {
+messaging.onBackgroundMessage(async (payload) => {
   console.log('[firebase-messaging-sw.js] Received background message ', payload)
   // Customize notification here
   const notificationTitle = payload.notification.title
