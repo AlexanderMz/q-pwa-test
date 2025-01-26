@@ -15,9 +15,9 @@ import { firebaseConfig, vapidKey } from './config';
 // Initialize Firebase
 initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
-const strUrl: string = window.location.origin + window.location.pathname + 'src-pwa/firebase-messaging-sw.js';
-console.log(strUrl)
-new SharedWorker(new URL(strUrl));
+// const strUrl: string = window.location.origin + window.location.pathname + 'src-pwa/firebase-messaging-sw.js';
+// console.log(strUrl)
+// new SharedWorker(new URL(strUrl));
 // Get registration token. Initially this makes a network call, once retrieved
 // subsequent calls to getToken will return from cache.
 const messaging = getMessaging();
